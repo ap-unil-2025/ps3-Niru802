@@ -55,16 +55,19 @@ def temperature_converter():
     # - Validate input
     # - Perform conversion
     # - Display result rounded to 2 decimal places
-    t = float(input("Type the temperature: "))
-    unit = input("Is it C or F ?").upper()
-    if unit == "C":
-        temperature_F = celsius_to_fahrenheit(t)
-        print("the temperature in Fahrenheit is", temperature_F, "°F")
-    elif unit == "F":
-        temperature_celsius = fahrenheit_to_celsius(t)
-        print("The temperature in Celsius is", temperature_celsius, "°C")
-    else:
-        print("Invalid unit")
+    try:
+        t = float(input("Type the temperature: "))
+        unit = input("Is it C or F ?").upper()
+        if unit == "C":
+            temperature_F = celsius_to_fahrenheit(t)
+            print("the temperature in Fahrenheit is", round(temperature_F,2), "°F")
+        elif unit == "F":
+            temperature_celsius = fahrenheit_to_celsius(t)
+            print("The temperature in Celsius is", round(temperature_celsius,2), "°C")
+        else:
+            print("Invalid unit")
+    except ValueError:
+        print("Invalid Input")
 
 
 
